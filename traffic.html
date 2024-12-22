@@ -37,16 +37,6 @@
             width: 70px;
             height: 70px;
         }
-
-        /* .button1{
-            background-color: red;
-        }
-        .button2{
-            background-color: yellow;
-        }
-        .button3{
-            background-color:green;
-        } */
     </style>
 </head>
 
@@ -59,17 +49,17 @@
 
     </div>
     <div class="btn-group-vertical">
-        <button onclick="start()" style="color: white; background-color: green; margin: 10px; padding: 5px;  padding-left: 20px; padding-right: 20px;">start</button>
-        <button onclick="stop()" style="color: white; background-color: red; margin: 10px; padding: 5px; padding-left: 20px; padding-right: 20px;">stop</button>
+        <button onclick="start()"
+            style="color: white; background-color: green; margin: 10px; padding: 5px;  padding-left: 20px; padding-right: 20px;">start</button>
+        <button onclick="stop()"
+            style="color: white; background-color: red; margin: 10px; padding: 5px; padding-left: 20px; padding-right: 20px;">stop</button>
     </div>
 
 </body>
 <script>
 
     var interval;
-    var state = 0; // Keep state global to retain its value across executions
-
-    // Function to execute the traffic light logic
+    var state = 0;
     function updateState() {
         // State 0 > STOP
         // State 1 > READY
@@ -92,22 +82,19 @@
         }
     }
 
-    // Function to start the traffic light cycle
-    function start() {
-        clearInterval(interval); // Clear any existing intervals
 
-        // Execute the logic immediately
+    function start() {
+        clearInterval(interval);
         state = 0;
         updateState();
 
-        // Set the interval for subsequent state changes
+
         interval = setInterval(updateState, 2000);
     }
 
-    // Function to stop the traffic light cycle
+
     function stop() {
-        clearInterval(interval); // Clear the interval to stop state updates
-        // Turn off all lights
+        clearInterval(interval);
         $('#div1').css({ 'background-color': 'white' });
         $('#div2').css({ 'background-color': 'white' });
         $('#div3').css({ 'background-color': 'white' });
@@ -116,10 +103,7 @@
         stop();
     });
 
-    // // Start the cycle when the page loads
-    // $(document).ready(function () {
-    //     start();
-    // });
+
 </script>
 
 </html>
